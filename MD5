@@ -1,0 +1,8 @@
+MD5
+
+import hashlib
+
+inputstring="This message is sent by computer user"
+output = hashlib.md5(inputstring.encode())
+print("Hash of input string:")
+print(output.hexdigest())
