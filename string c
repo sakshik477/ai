@@ -1,0 +1,24 @@
+string IS
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+	
+	char str[]="hello world";
+	int i,len;
+	len=strlen(str);
+	
+	for(i=0;i<len;i++)
+	{
+		printf("%c",str[i]&127);
+	}
+	for(i=0;i<len;i++)
+	{
+		printf("%c",str[i]^127);
+	}
+	for(i=0;i<len;i++)
+	{
+		printf("%c",str[i]|127);
+	}
+	return 0;
+}
