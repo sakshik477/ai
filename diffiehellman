@@ -1,52 +1,38 @@
 Diffie Hellman algorithm
 
-#include <cmath>
-#include <iostream>
- 
-using namespace std;
- 
+<html>
 
-long long int power(long long int a, long long int b,
-                    long long int P)
-{
-    if (b == 1)
-        return a;
- 
-    else
-        return (((long long int)pow(a, b)) % P);
-}
- 
+    <head>
+        <meta charset="utf-8">
+        <title> </title>
+    </head>
 
-int main()
-{
-    long long int P, G, x, a, y, b, ka, kb;
- 
-    
-    P = 23; 
-    cout << "The value of P : " << P << endl;
- 
-    G = 9;
-    cout << "The value of G : " << G << endl;
- 
-    
-    a = 4; 
-    cout << "The private key a for Alice : " << a << endl;
- 
-    x = power(G, a, P); 
- 
-    
-    b = 3; 
-    cout << "The private key b for Bob : " << b << endl;
- 
-    y = power(G, b, P); 
- 
-   
-    ka = power(y, a, P); 
-    kb = power(x, b, P); 
-    cout << "Secret key for the Alice is : " << ka << endl;
- 
-    cout << "Secret key for the Bob is : " << kb << endl;
- 
-    return 0;
-}
+    <body>
+        <h2>Diffie-HellmanKey-Exchange</h2>
+        <hr>
+        <script>
+            function power(a, b, p) {
+                if (b == 1)
+                    return a;
+                else
+                    return ((Math.pow(a, b)) % p);
+            }
+            var P, G, x, a, y, b, ka, kb;
+            P = 23;
+            document.write("The value of P : " + P + "<br>");
+            G = 9;
+            document.write("The value of G : " + G + "<br>");
+            a = 4;
+            document.write("The private key a for Alice : " + a + "<br>");
+            x = power(G, a, P);
+            b = 3;
+            document.write("The private key a for Bob : " + b + "<br>");
+            y = power(G, b, P);
+            ka = power(y, a, P); // Secret key for Alice
+            kb = power(x, b, P); // Secret key for Bob
+            document.write("Secret keet for the Alice is : " + ka + "<br>");
+            document.write("Secret keet for the Bob is : " + kb + "<br>");
+        </script>
+    </body>
 
+</html>
