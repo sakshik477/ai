@@ -3,35 +3,36 @@ RSA
 
 import math
 
-p = 3
-q = 7
 
-n = p*q
-print "n =", n
+def GCD(a,b):
+    if (b==0):
+        return a
+    else:
+        return(b,a%b)
+    
+p=int(input(" p :"))
+q=int(input(" q :"))
 
-phi = (p-1)*(q-1)
-e = 2
+n=p*q
+
+e=2
+k=2
+
+phi=(p-1)*(q-1)
+
 while(e<phi):
- if (gcd(e, phi) == 1):
- break
- else:
- e +=1
- 
-print "e =", e 
+    if(GCD(e,phi)==1):
+        break
+    else:
+        e+=1
+    
+d=int(((k*phi)+1)/e)
 
-k = 2
-d = ((k*phi)+1)/e
-print "d =", d
-print "Public key:(%d, %d)" % (e,n)
-print "Private key: (%d, %d)" % (d,n)
 
-msg = 11
-print "Original message:",msg
+print(f"Public Key (e,n) : ({e},{n})")
+print(f"Private Key (d,n) : ({d},{n})")
 
-C = pow(msg, e)
-C = math.fmod(C, n)
-print "Encrypted message:", C
-
-M = pow(C,d)
-M = math.fmod(M, n)
-print "Decrypted message:", M
+msg = input("Enter you Message : ")
+print("original string : ", msg)
+print("Encrypted String : ", encryptedMSG)
+print("decrypted string : ", decryptedMSG)
